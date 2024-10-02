@@ -1,0 +1,62 @@
+.product-grid-card-name,
+.product-grid-card-category,
+.product-grid-card-sale-price{
+	margin: 0;
+	
+} 
+
+.product-grid-card {
+	background-color: #fff;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 1rem;
+	border-radius: 0.5rem;
+	box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+	/* max-width: 250px; */
+}
+
+.product-grid-card-image{
+	aspect-ratio: 1/1;
+	height: 150px;
+	width: 100%;
+	object-fit: cover;
+	border-radius: 20px;
+	box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+	transition: 0.5s;
+}
+
+.product-grid-card-image:hover{
+	transform: scale(1.02);
+	box-shadow: 0 2px 4px rgba(0,0,0,0.6);
+	transition: 0.3s;
+}
+
+.product-grid-card-name{
+	font-size: 2.5rem;
+	font-weight: 700;
+	font-family: var(--font-two);
+	color: #347928;
+}
+
+.product-grid-card-category{
+	font-family: var(--font-one);
+	color: rgb(103, 70, 54);
+}
+
+.product-grid-card-sale-price{
+	font-size: 1.25rem;
+	font-family: var(--font-one);
+	color: rgb(26, 83, 25);
+}
+
+.product-grid-card-button{
+	color: rgb(103, 70, 54);
+	font-family: var(--font-one);
+	font-weight: 400;
+	font-size: 1.5rem;
+	text-decoration: none;
+	text-align: center;
+	background-color: #B5C18E;
+	/* max-width:250px; */
+}

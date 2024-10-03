@@ -127,7 +127,7 @@ namespace api.Controllers
 			if (!ModelState.IsValid)
 			{
 				return BadRequest(ModelState);
-			} 
+			}
 
 			var user = await _userManager.Users.FirstOrDefaultAsync(x => x.Email == loginDto.Email.ToLower());
 
@@ -170,6 +170,30 @@ namespace api.Controllers
 			}
 		}
 
+		[HttpGet("ConfirmEmail")]
+		public async Task<IActionResult> ConfirmEmail(string userId, string token)
+		{
+			if (userId == null || token == null)
+			{
+				return RedirectToAction("Index", "Home");
+			}
+
+			var user = await _userManager.FindByIdAsync(userId);
+			if (user == null)
+			{
+				return NotFound();
+			}
+
+			var result = await _userManager.ConfirmEmailAsync(user, token);
+			if (result.Succeeded)
+			{
+				return Redirect(Environment.GetEnvironmentVariable("FRONT_END_LINK"));
+			}
+			else
+			{
+				return BadRequest(result.Errors);
+			}
+		}
 	}
 	//End
 }

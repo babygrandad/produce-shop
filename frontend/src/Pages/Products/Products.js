@@ -58,32 +58,7 @@ function Products() {
 
   return (
     <div className={`${styles['products-container']}`}>
-      <SearchBar 
-        all={products.length}
-        fruit={fruitCount}
-        veg={vegCount}
-        onFilterChange={handleFilterChange} // Pass filter change function
-        onSearch={handleSearch} // Pass search function
-      />
-      <div className={styles["products-wrapper"]}>
-        {loading ? (
-          // shows skeleton cards while loading to provide user feedback
-          Array.from({ length: 9 }).map((_, index) => (
-            <SkeletonGridCard key={index} />
-          ))
-        ) : (
-          filteredProducts.map((product) => (
-            <ProductGridCard
-              key={product.id}
-              id={product.id}
-              description={product.description}
-              salePrice={product.salePrice}
-              category={product.category}
-              image={product.image}
-            />
-          ))
-        )}
-      </div>
+      
     </div>
   );
 }

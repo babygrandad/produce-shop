@@ -6,6 +6,8 @@ namespace api.Models
   {
     public string Name { get; set; }
     public string Surname { get; set; }
-    public string Email { get; set; } // Pass this into username too, if the dev do not aprove then you can always add that username field and make i required
+
+		// navigation  properties for refferencing 
+		public List<PasswordHistory> PasswordHistories  { get; set; } = new List<PasswordHistory>();
   }
 }

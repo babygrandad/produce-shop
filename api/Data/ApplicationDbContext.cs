@@ -12,6 +12,8 @@ namespace api.Data
 		{
 		}
 
+		public DbSet<PasswordHistory> PasswordHistories { get; set; }
+
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
 			base.OnModelCreating(modelBuilder);
@@ -20,6 +22,11 @@ namespace api.Data
 			modelBuilder.Entity<AppUser>()
 				.Property(u => u.Id)
 				.HasColumnName("UserID");
+
+				 modelBuilder.Entity<PasswordHistory>()
+					.HasOne(p => p.AppUser)
+					.WithMany(u => u.PasswordHistories)
+					.HasForeignKey(p => p.UserID);
 
 			List<IdentityRole> roles = new List<IdentityRole>
 			{

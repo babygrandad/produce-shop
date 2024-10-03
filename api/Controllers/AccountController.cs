@@ -1,8 +1,12 @@
 using api.Dtos.Account;
+using api.Dtos.EmailDto;
+using api.DTOs.AccountDtos;
 using api.Interfaces;
 using api.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+
 
 namespace api.Controllers
 {
@@ -16,7 +20,6 @@ namespace api.Controllers
 		private readonly SignInManager<AppUser> _signInManager;
 		private readonly ITitleCaseService _titleCaseService;
 		private readonly IPasswordHistoryService _passwordHistoryService;
-		private readonly ILogger<AccountController> _logger;
 
 		public AccountController(
 			UserManager<AppUser> userManager,
@@ -24,8 +27,7 @@ namespace api.Controllers
 			SignInManager<AppUser> signInManager,
 			IEmailService emailService,
 			IPasswordHistoryService passwordHistoryService,
-			ITitleCaseService titleCaseService,
-			ILogger<AccountController> logger)
+			ITitleCaseService titleCaseService)
 		{
 			_userManager = userManager;
 			_tokenService = tokenService;
@@ -33,7 +35,6 @@ namespace api.Controllers
 			_emailService = emailService;
 			_passwordHistoryService = passwordHistoryService;
 			_titleCaseService = titleCaseService;
-			_logger = logger;
 		}
 
 		[HttpPost("register")]
@@ -55,7 +56,7 @@ namespace api.Controllers
 			{
 				Name = _titleCaseService.ToTitleCase(registerDto.Name).Trim(),
 				Surname = _titleCaseService.ToTitleCase(registerDto.Surname).Trim(),
-				UserName = registerDto.UserName,
+				UserName = registerDto.Email.ToLower(),
 				Email = registerDto.Email.ToLower(),
 			};
 
@@ -77,20 +78,22 @@ namespace api.Controllers
 																					},
 																					Request.Scheme);
 
-				var emailRecipient = registerDto.Email.ToLower();
-				var subject = "Confirm Your Email";
-				var link = confirmationLink;
-				var fullName = $"{_titleCaseService.ToTitleCase(registerDto.Name).Trim()} {_titleCaseService.ToTitleCase(registerDto.Surname).Trim()}";
+				var emailContext = new EmailDto
+				{
+					EmailRecipient = registerDto.Email.ToLower(),
+					Subject = "Confirm Your Email",
+					Link = confirmationLink,
+					FullName = $"{_titleCaseService.ToTitleCase(registerDto.Name).Trim()} {_titleCaseService.ToTitleCase(registerDto.Surname).Trim()}"
+				};
 
-				// try canging the SendEmailAsync parameter (link) to take (context) as an object/class so that you can use 1 method for all sorts
 				try
 				{
-					await _emailService.SendEmailAsync(emailRecipient, subject, fullName, link, "WelcomeEmail");
+					await _emailService.SendEmailAsync(emailContext, "WelcomeEmail");
 				}
 				catch (Exception ex)
 				{
 					await _userManager.DeleteAsync(appUser);
-					return StatusCode(500, $"An error occurred while sending the confirmation email. Please try again.");
+					return StatusCode(500, $"An error occurred while sending the confirmation email. Please try again.: {ex}");
 				}
 
 				try
@@ -117,6 +120,56 @@ namespace api.Controllers
 				return StatusCode(500, new { errors = createdUser.Errors.Select(e => e.Description) });
 			}
 		}
+
+		[HttpPost("login")]
+		public async Task<IActionResult> Login([FromBody] LoginDto loginDto)
+		{
+			if (!ModelState.IsValid)
+			{
+				return BadRequest(ModelState);
+			} 
+
+			var user = await _userManager.Users.FirstOrDefaultAsync(x => x.Email == loginDto.Email.ToLower());
+
+			if (user == null) return Unauthorized(new { message = "Invalid email or password." });
+
+			if (!user.EmailConfirmed) return Unauthorized(new { message = "Email is not confirmed." });
+
+			var result = await _signInManager.CheckPasswordSignInAsync(user, loginDto.Password, lockoutOnFailure: true);
+
+			if (result.Succeeded)
+			{
+				await _userManager.ResetAccessFailedCountAsync(user);
+
+				var roles = await _userManager.GetRolesAsync(user);
+
+				return Ok(
+						new
+						{
+							userName = user.UserName,
+							email = user.Email,
+							fullName = $"{_titleCaseService.ToTitleCase(user.Name).Trim()} {_titleCaseService.ToTitleCase(user.Surname).Trim()}",
+							token = _tokenService.CreateToken(user),
+							roles
+						}
+				);
+			}
+			else if (result.IsLockedOut)
+			{
+				var lockedUntil = await _userManager.GetLockoutEndDateAsync(user);
+				var totalSeconds = Math.Ceiling((lockedUntil?.Subtract(DateTimeOffset.Now).TotalSeconds) ?? 0);
+				return Unauthorized(new { message = $"Your account is currently locked, please try again in {totalSeconds} seconds" });
+			}
+			else
+			{
+				var accessFailedCount = await _userManager.GetAccessFailedCountAsync(user);
+				var maxFailedAccessAttempts = _userManager.Options.Lockout.MaxFailedAccessAttempts;
+				var attemptsLeft = maxFailedAccessAttempts - accessFailedCount;
+
+				return Unauthorized(new { message = $"Invalid username or password. You have {attemptsLeft} attemps left" });
+			}
+		}
+
 	}
 	//End
 }

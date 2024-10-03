@@ -4,4 +4,11 @@
 	"editor.detectIndentation": false,
 	"omnisharp.organizeImportsOnFormat": true,
 	"git.branchSortOrder": "alphabetically",
+	"editor.formatOnSave": true,
+	"[csharp]": {
+		"editor.maxTokenizationLineLength": 2500,
+		"prettier.tabWidth": 2,
+		"breadcrumbs.showInterfaces": true,
+	},
+	"csharp.format.enable": true,
 }

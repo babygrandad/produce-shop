@@ -1,31 +1,47 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lustria&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=SUSE:wght@100..800&display=swap");
 
-:root{
-	--font-one: 'Lustria', serif;
-	--font-two: 'Lato', sans-serif;
+:root {
+  --font-one: "Poppins", sans-serif;
+  --font-two: "SUSE", sans-serif;
 
-	
+  /*  Temporary colour weights for text */
+  --text-default: rgb(0 0 0);
+  --text-white: rgb(128 128 128);
+  --text-grey: rgb(128 128 128);
+  --text-base: rgb(254 250 224);
+  --text-primary: rgb(64 64 64); /* A darker grey for primary */
+  --text-accent: rgb(192 192 192); /* A lighter grey for accent/secondary colour */
 
-
-
+  /*  Temporary colour weights for elements */
+  --clr-default: rgb(0 0 0);
+  --clr-white: rgb(128 128 128);
+  --clr-grey: rgb(128 128 128);
+  --clr-base: rgb(254 250 224);
+  --clr-primary: rgb(64 64 64); /* A darker grey for primary */
+  --clr-accent: rgb(192 192 192); /* A lighter grey for accent/secondary colour */
 }
 
-*{
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.button{
-	border: none;
-	padding: 0.5rem 1rem;
-	margin-top: 1rem;
-	border-radius: 0.25rem;
-	box-shadow: 0 2px 4px rgba(0,0,0,0.4);
-	transition: 0.3s;
+body {
+  font-family: var(--font-one);
+  max-width: 1920px;
+  background-color: var(--clr-base);
 }
 
-.button:hover{
-	box-shadow: 0 2px 4px rgba(0,0,0,0.6);
-	transition: 0.3s;
+.button {
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  transition: 0.3s;
+}
+
+.button:hover {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+  transition: 0.3s;
 }

@@ -1,0 +1,44 @@
+.home-container{
+  display: grid;
+  grid-template-columns: 350px 1fr;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas: 
+  "sidebar header"
+  "sidebar main"
+  "sidebar footer";
+  min-height: 100svh;
+}
+
+.home-container aside{
+  grid-area: sidebar;
+  position: sticky;
+  top: 0;
+  left: 0;
+  align-self: start;
+
+  min-height: 100svh;
+}
+.home-container header{
+  grid-area: header;
+  position: sticky;
+  top: 0;
+
+}
+.home-container main{
+  grid-area: main;
+  padding: 1rem;
+}
+.home-container footer{
+  grid-area: footer;
+}
+
+@media(max-width:800px){
+  .home-container{
+    grid-template-columns: 1fr;
+  }
+
+  .home-container aside{
+    position: fixed;
+    width: 350px;
+  }
+}

@@ -12,7 +12,7 @@ function Sidemenu() {
         <div className={styles["logo-container"]}>
           <img src={logo} alt="" className={styles["logo-image"]} />
         </div>
-        <nav>
+        <nav className={styles['main-nav']}>
           <ul>
             <li><a href=""><Store /><span>Shop</span></a></li>
             <li><a href=""><Person /><span>Profile</span></a></li>

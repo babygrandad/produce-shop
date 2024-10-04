@@ -1,6 +1,6 @@
 import React, { useState }from 'react'
 import styles from './Topbar.module.css'
-import { Search } from '@mui/icons-material';
+import { Search, Menu } from '@mui/icons-material';
 
 function Topbar({all = 0, fruit = 0, veg = 0, onFilterChange, onSearch}) {
   const [searchInput, setSearchInput] = useState(null)
@@ -32,11 +32,11 @@ function Topbar({all = 0, fruit = 0, veg = 0, onFilterChange, onSearch}) {
 
   return(
     <header className={styles['header-container']}>
-      <form className={styles["topbar-search-form"]} autoComplete='off'>
+      <button className={styles['header-menu-toggle']}><Menu /></button>
+      <form className={styles["header-search-form"]} autoComplete='off'>
         <Search />
         <input type="text" className={styles['search-input']} placeholder={`Search...`} />
       </form>
-      
     </header>
   )
 }

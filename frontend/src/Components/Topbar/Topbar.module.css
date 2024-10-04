@@ -1,9 +1,18 @@
 .header-container{
   padding: 1rem;
-  background-color: var(--clr-white);
+  /* background-color: grey; */
+  display: flex;
+  justify-content: space-between;
 }
 
-.topbar-search-form{
+.header-menu-toggle{
+  outline: none;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.header-search-form{
   background-color: var(--clr-white);
   display: flex;
   width: fit-content;

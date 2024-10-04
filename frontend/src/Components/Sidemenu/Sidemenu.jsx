@@ -5,9 +5,6 @@ import {Store, Person, ShoppingCart, ManageAccounts, Logout } from '@mui/icons-m
 function Sidemenu() {
 	return (
 		<aside className={`${styles['sidemenu-container']}`}>
-			<button className={styles["menu-button"]} data-role="toggle">
-        O
-      </button>
       <div className={styles["sidemenu-wrapper"]}>
         <div className={styles["logo-container"]}>
           <img src={logo} alt="" className={styles["logo-image"]} />

@@ -3,7 +3,6 @@ import styles from './Products.module.css';
 import ProductGridCard from '../../Components/ProductGridCard/ProductGridCard';
 import SkeletonGridCard from '../../Components/SkeletonGridCard/SkeletonGridCard';
 import { GetProducts } from '../../utils/Api/ProductsApi';
-import SearchBar from '../../Components/SearchBar/SearchBar';
 
 function Products() {
   const [loading, setLoading] = useState(true);
@@ -58,7 +57,7 @@ function Products() {
 
   return (
     <div className={`${styles['products-container']}`}>
-      
+      {}
     </div>
   );
 }

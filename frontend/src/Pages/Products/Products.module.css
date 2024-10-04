@@ -1,0 +1,13 @@
+.products-container{
+  display: grid;
+  grid-template-columns: repeat(auto-fit,250px);
+  gap: 1rem;
+  justify-content: center;
+  background-color: aqua;
+}
+
+.example::before{
+  content: "im a grid box";
+  background-color: blueviolet;
+  width: 100%;
+}

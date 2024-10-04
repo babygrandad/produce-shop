@@ -1,29 +1,19 @@
 /*  This container's width should ONLY!!! be controlled from "home component" */
-.sidemenu-container{
+/* .sidemenu-container{
   height: 100%;
-}
+} */
 
 .sidemenu-wrapper{
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content:space-between;
-  background-color: white; /*temporary colour used for design*/
   padding: 1rem;
 }
 
 .logo-container{
   height: 110px;
   padding-left: 1rem;
-}
-
-.menu-button{
-  background-color: red;
-  padding: 1rem;
-  border-radius: 0.5rem;
-  position: absolute;
-  left:100%;
-  top: 10%;
 }
 
 .main-nav{

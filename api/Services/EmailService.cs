@@ -32,6 +32,7 @@ namespace api.Services
 		{
 
 			var emailContext = emailDto;
+      var currentYear = DateTime.Now.Year.ToString();
 
 			if (emailContext == null)
 			{
@@ -44,7 +45,8 @@ namespace api.Services
 				var body = PopulateTemplate(template, new (string, string)[]
 				{
 					("{nameOfUser}", emailContext.FullName),
-					("{link}", emailDto.Link)
+					("{link}", emailDto.Link),
+          ("{year}", currentYear),
 				});
 
 				var mailMessage = new MailMessage

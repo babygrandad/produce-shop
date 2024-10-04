@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
-import styles from './SearchBar.module.css'
+import React, { useState }from 'react'
+import styles from './Topbar.module.css'
+import { Search } from '@mui/icons-material';
 
-function SearchBar({all = 0, fruit = 0, veg = 0, onFilterChange, onSearch}) {
+function Topbar({all = 0, fruit = 0, veg = 0, onFilterChange, onSearch}) {
   const [searchInput, setSearchInput] = useState(null)
 
   const handleClear = (e) => {
@@ -29,11 +30,15 @@ function SearchBar({all = 0, fruit = 0, veg = 0, onFilterChange, onSearch}) {
     }
   };
 
-  return (
-	<div className={styles['searchbar-container']}>
-    
-  </div>
+  return(
+    <header className={styles['header-container']}>
+      <form className={styles["topbar-search-form"]} autoComplete='off'>
+        <Search />
+        <input type="text" className={styles['search-input']} placeholder={`Search...`} />
+      </form>
+      
+    </header>
   )
 }
 
-export default SearchBar
+export default Topbar

@@ -14,10 +14,10 @@ function Sidemenu() {
         </div>
         <nav className={styles['main-nav']}>
           <ul>
-            <li><a href=""><Store /><span>Shop</span></a></li>
-            <li><a href=""><Person /><span>Profile</span></a></li>
-            <li><a href=""><ShoppingCart /><span>Cart</span></a></li>
-            <li><a href=""><ManageAccounts /><span>Management</span></a></li>
+            <li><a href=""><Store className={styles['sidemenu-icon']} /><span>Shop</span></a></li>
+            <li><a href=""><Person className={styles['sidemenu-icon']} /><span>Profile</span></a></li>
+            <li><a href=""><ShoppingCart className={styles['sidemenu-icon']} /><span>Cart</span></a></li>
+            <li><a href=""><ManageAccounts className={styles['sidemenu-icon']} /><span>Management</span></a></li>
           </ul>
         </nav>
         <div className={styles["user-profile"]}>
@@ -26,7 +26,7 @@ function Sidemenu() {
           <span className={styles["user-profile-email"]}>naruto@example.com</span>
         </div>
         <div className={styles["logout-container"]}>
-          <ul><li><a href=""><Logout /><span>Logout</span></a></li></ul>
+          <ul><li><a href=""><Logout className={styles['sidemenu-icon']} /><span>Logout</span></a></li></ul>
         </div>
       </div>
 		</aside>

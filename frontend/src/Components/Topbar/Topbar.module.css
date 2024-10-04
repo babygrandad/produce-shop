@@ -1,0 +1,19 @@
+.header-container{
+  padding: 1rem;
+  background-color: var(--clr-white);
+}
+
+.topbar-search-form{
+  background-color: var(--clr-white);
+  display: flex;
+  width: fit-content;
+  padding: 0.5rem 0;
+  gap: 0.5rem;
+  border-bottom: 0.5px solid var(--clr-accent);
+}
+
+.search-input{
+  border: none;
+  font-size: var(--font-h4);
+  outline: none;
+}

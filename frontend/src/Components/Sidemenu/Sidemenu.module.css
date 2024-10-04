@@ -14,7 +14,7 @@
 
 .logo-container{
   height: 110px;
-  padding: 1rem 1rem 0;
+  padding-left: 1rem;
 }
 
 .menu-button{
@@ -49,8 +49,13 @@
   display: flex;
   align-items: center;
   gap:1rem;
+  font-size: var(--font-h5);
+  padding: 0.5rem 0 0.5rem 1rem;
 }
 
+.sidemenu-icon{
+
+}
 
 .user-profile{
   display: grid;
@@ -67,12 +72,18 @@
   border-radius: 50%;
 }
 
-.user-profile-email{
-  width: 100%;
-  grid-area: user-profile-email;
-}
-
 .user-profile-name{
   width: 100%;
   grid-area: user-profile-name;
+  font-size: var(--font-h5);
+  padding-left: 1rem;
+  align-self: self-end;
 }
+
+.user-profile-email{
+  width: 100%;
+  grid-area: user-profile-email;
+  font-size: var(--font-s);
+  padding-left: 1rem;
+}
+

@@ -6,7 +6,7 @@
 
   /*  Temporary colour weights for text */
   --text-default: rgb(0 0 0);
-  --text-white: rgb(128 128 128);
+  --text-white: rgb(255 255 255);
   --text-grey: rgb(128 128 128);
   --text-base: rgb(254 250 224);
   --text-primary: rgb(64 64 64); /* A darker grey for primary */
@@ -14,11 +14,20 @@
 
   /*  Temporary colour weights for elements */
   --clr-default: rgb(0 0 0);
-  --clr-white: rgb(128 128 128);
+  --clr-white: rgb(255 255 255);
   --clr-grey: rgb(128 128 128);
   --clr-base: rgb(254 250 224);
   --clr-primary: rgb(64 64 64); /* A darker grey for primary */
   --clr-accent: rgb(192 192 192); /* A lighter grey for accent/secondary colour */
+  
+  --font-h1: 2.25rem;
+  --font-h2: 2rem;
+  --font-h3: 1.75rem;
+  --font-h4: 1.5rem;
+  --font-h5: 1.25rem;
+  --font-n: 1rem;
+  --font-s: 0.75rem;
+  --font-xs: 0.5rem;
 }
 
 * {

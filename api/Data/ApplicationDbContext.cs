@@ -39,6 +39,11 @@ namespace api.Data
 				{
 					Name="User",
 					NormalizedName="USER",
+				},
+				new IdentityRole
+				{
+					Name="Manager",
+					NormalizedName="MANAGER",
 				}
 			};
 

@@ -1,6 +1,6 @@
 import React, { useState }from 'react'
 import styles from './Topbar.module.css'
-import { Search, Menu } from '@mui/icons-material';
+import { Search, Menu,ArrowDropDown} from '@mui/icons-material';
 
 function Topbar({all = 0, fruit = 0, veg = 0, onFilterChange, onSearch}) {
   const [searchInput, setSearchInput] = useState(null)
@@ -37,6 +37,12 @@ function Topbar({all = 0, fruit = 0, veg = 0, onFilterChange, onSearch}) {
         <Search />
         <input type="text" className={styles['search-input']} placeholder={`Search...`} />
       </form>
+      <div className={styles["user-profile"]}>
+          <img src="https://i.pinimg.com/736x/e4/ea/7a/e4ea7a052f09288f1490c1037b3f7181.jpg" alt="" className={styles["user-profile-image"]} />
+          <span className={styles["user-profile-name"]}>Naruto Uzumaki</span>
+          <span className={styles["user-profile-email"]}>naruto@example.com</span>
+          <span className={styles['user-profile-dropdown-button']}><ArrowDropDown /></span>
+        </div>
     </header>
   )
 }

@@ -57,7 +57,15 @@ function Products() {
 
   return (
     <div className={`${styles['products-container']}`}>
-      {}
+        <SkeletonGridCard />
+        <SkeletonGridCard />
+        <SkeletonGridCard />
+        <SkeletonGridCard />
+        <SkeletonGridCard />
+        <SkeletonGridCard />
+        <SkeletonGridCard />
+        <SkeletonGridCard />
+        <SkeletonGridCard />
     </div>
   );
 }

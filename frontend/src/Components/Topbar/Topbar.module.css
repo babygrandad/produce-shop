@@ -26,3 +26,37 @@
   font-size: var(--font-h4);
   outline: none;
 }
+
+.user-profile{
+  display: grid;
+  grid-template-columns: 70px 1fr;
+  grid-template-areas: 
+  "user-profile-image user-profile-name user-profile-dropdown-button"
+  "user-profile-image user-profile-email user-profile-dropdown-button";
+}
+
+.user-profile-image{
+  width: 100%;
+  grid-area: user-profile-image;
+  border-radius: 50%;
+}
+
+.user-profile-name{
+  width: 100%;
+  grid-area: user-profile-name;
+  font-size: var(--font-h5);
+  padding-left: 1rem;
+  align-self: self-end;
+}
+
+.user-profile-email{
+  width: 100%;
+  grid-area: user-profile-email;
+  font-size: var(--font-s);
+  padding-left: 1rem;
+}
+
+.user-profile-dropdown-button{
+ align-self: self-end;
+ cursor: pointer;
+}

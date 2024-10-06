@@ -7,13 +7,13 @@
   /*  Real colours to be used later */
   --primary-clr:rgb(0 86 59);
   --accent-clr:rgb(221 167 123);
-  --base-clr: rgb(254 250 224);
+  --base-clr: hsl(48, 17%, 94%);
 
   /*  Temporary colour weights for text */
   --text-default: rgb(0 0 0);
   --text-white: rgb(255 255 255);
   --text-grey: rgb(128 128 128);
-  --text-base: rgb(254 250 224);
+  --text-base: rgb(243, 242, 238);
   --text-primary: rgb(64 64 64); /* A darker grey for primary */
   --text-accent: rgb(192 192 192); /* A lighter grey for accent/secondary colour */
 
@@ -21,7 +21,7 @@
   --clr-default: rgb(0 0 0);
   --clr-white: rgb(255 255 255);
   --clr-grey: rgb(128 128 128);
-  --clr-base: rgb(243, 242, 238);
+  --clr-base: hsl(60, 6%, 95%);
   --clr-primary: rgb(64 64 64); /* A darker grey for primary */
   --clr-accent: rgb(192 192 192); /* A lighter grey for accent/secondary colour */
   

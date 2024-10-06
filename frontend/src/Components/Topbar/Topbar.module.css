@@ -1,8 +1,10 @@
 .header-container{
   padding: 1rem;
-  /* background-color: grey; */
+  background-color: var(--clr-base);
   display: flex;
   justify-content: space-between;
+  background-color: var(--clr-white);
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px;
 }
 
 .header-menu-toggle{
@@ -15,6 +17,7 @@
 .header-search-form{
   background-color: var(--clr-white);
   display: flex;
+  align-items: center;
   width: fit-content;
   padding: 0.5rem 0;
   gap: 0.5rem;
@@ -29,7 +32,7 @@
 
 .user-profile{
   display: grid;
-  grid-template-columns: 70px 1fr;
+  grid-template-columns: 55px 1fr;
   grid-template-areas: 
   "user-profile-image user-profile-name user-profile-dropdown-button"
   "user-profile-image user-profile-email user-profile-dropdown-button";

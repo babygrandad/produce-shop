@@ -89,6 +89,12 @@
   width: 3rem;
   aspect-ratio: 1/1;
   top: 90%;
+  
+}
+
+.product-add-to-cart:hover{
+  color: var(--accent-clr);
+  transition: 0.1s ;
 }
 
 /*  

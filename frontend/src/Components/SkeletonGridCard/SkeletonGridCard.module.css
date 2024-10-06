@@ -33,6 +33,9 @@
 
 .skeleton-stats-icon:hover .skeleton-stats-tooltip{
   display: block;
+  width: 100px;
+  height: 0.5rem;
+  padding: 0.5rem;
 }
 
 .skeleton-category{

@@ -2,7 +2,7 @@ import React, { useState }from 'react'
 import styles from './Topbar.module.css'
 import { Search, Menu,ArrowDropDown} from '@mui/icons-material';
 
-function Topbar({all = 0, fruit = 0, veg = 0, onFilterChange, onSearch}) {
+function Topbar({ onSearch }) {
   const [searchInput, setSearchInput] = useState("")
 
   const handleClear = (e) => {
@@ -16,19 +16,9 @@ function Topbar({all = 0, fruit = 0, veg = 0, onFilterChange, onSearch}) {
     onSearch(event.target.value); 
   }
 
-  const handleFilter = (category) => {
-    onFilterChange(category);
-  };
-
   const handleSubmit = (e) =>{
     e.preventDefault();
   }
-
-  const handleKeyPress = (event) => {
-    if (event.key === 'Enter') {
-      event.preventDefault(); // Prevent form submission on Enter key
-    }
-  };
 
   return(
     <header className={styles['header-container']}>

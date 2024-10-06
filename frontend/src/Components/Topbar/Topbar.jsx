@@ -3,18 +3,18 @@ import styles from './Topbar.module.css'
 import { Search, Menu,ArrowDropDown} from '@mui/icons-material';
 
 function Topbar({all = 0, fruit = 0, veg = 0, onFilterChange, onSearch}) {
-  const [searchInput, setSearchInput] = useState(null)
+  const [searchInput, setSearchInput] = useState("")
 
   const handleClear = (e) => {
     e.preventDefault();
     setSearchInput('');
-    onSearch('');
+    onSearch(''); 
   };
 
   const handleInputChange = (event) => {
     setSearchInput(event.target.value);
-    onSearch(event.target.value);
-  };
+    onSearch(event.target.value); 
+  }
 
   const handleFilter = (category) => {
     onFilterChange(category);

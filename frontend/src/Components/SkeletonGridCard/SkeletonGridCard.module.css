@@ -1,4 +1,96 @@
 .skeleton-grid-card{
   border: 1px solid;
-  aspect-ratio: 4/3;
+  /* aspect-ratio: 1/1; */
+  padding: 1rem;
+  position: relative;
 }
+
+.skeleton-stats-icon{
+  left: calc(100% - 1rem);
+  transform: translateX(-100%);
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: grey;
+  cursor: pointer;
+  border-radius: 50%;
+  aspect-ratio: 1/1;
+  width: 1.5rem;
+}
+
+.skeleton-stats-tooltip{
+  position: absolute;
+  background-color: grey;
+  width: 131px;
+  left: 0;
+  transform: translateX(-105%);
+  padding: 0 0.5rem;
+  font-size: var(--font-s);
+  display: none;
+  border-radius: 4px;
+}
+
+.skeleton-stats-icon:hover .skeleton-stats-tooltip{
+  display: block;
+}
+
+.skeleton-category{
+  font-size: var(--font-s);
+  width: 90px;
+  padding: 0.5rem;
+  height: 1rem;
+}
+
+.skeleton-name{
+  font-size: var(--font-h5);
+  font-weight: 700;
+  margin-top: 0.5rem;
+  width: 100px;
+  height: 1.5rem;
+  padding: 0.5rem;
+}
+
+.skeleton-image{
+  aspect-ratio: 3/2;
+  width: 100%;
+  margin: 1rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.skeleton-bottom-section{
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.skeleton-price{
+  width: 70px;
+  height: 1rem;
+  padding: 0.5rem;
+}
+
+.skeleton-add-to-cart{
+  border-radius: 50%;
+  width: 3rem;
+  aspect-ratio: 1/1;
+  top: 90%;
+}
+
+.skeleton-item{
+ background-color:  grey;
+}
+
+/*  
+  Widths for skeleton 
+  category 90px
+  name 100px
+  image 100%
+  price 70px
+  cart 42px
+  stats icon 25px
+*/
+

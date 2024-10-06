@@ -4,13 +4,15 @@ import styles from './SkeletonGridCard.module.css';
 const SkeletonGridCard = () => {
   return (
     <div className={styles['skeleton-grid-card']}>
-      <div className="skeleton-stats"></div>
-      <div className="skeleton-category">Categoy</div>
-      <div className="skeleton-name">Name</div>
-      <div className="skeleton-image">Image</div>
-      <div className="skeleton-bottomsection">
-        <div className="skeleton-price">Price</div>
-        <div className="steleton-add-to-cart">button</div>
+      <div className={styles["skeleton-stats-icon"]}>
+        <span className={styles['skeleton-stats-tooltip']}></span>
+      </div>
+      <div className={`${styles["skeleton-category"]} ${styles["skeleton-item"]}`}></div>
+      <div className={`${styles["skeleton-name"]} ${styles["skeleton-item"]}`}></div>
+      <div className={`${styles["skeleton-image"]} ${styles["skeleton-item"]}`}></div>
+      <div className={styles["skeleton-bottom-section"]}>
+        <div className={`${styles["skeleton-price"]} ${styles["skeleton-item"]}`}></div>
+        <div className={`${styles["skeleton-add-to-cart"]} ${styles["skeleton-item"]}`}></div>
       </div>
     </div>
   );

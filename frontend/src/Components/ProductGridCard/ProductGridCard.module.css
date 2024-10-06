@@ -1,0 +1,88 @@
+.product-grid-card{
+  border: 1px solid;
+  /* aspect-ratio: 1/1; */
+  padding: 1rem;
+  position: relative;
+}
+
+.product-stats-icon{
+  left: calc(100% - 1rem);
+  transform: translateX(-100%);
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: grey;
+  cursor: pointer;
+  border-radius: 50%;
+  aspect-ratio: 1/1;
+  width: 1.5rem;
+}
+
+.product-stats-tooltip{
+  position: absolute;
+  width: 131px;
+  left: 0;
+  transform: translateX(-105%);
+  padding: 0 0.5rem;
+  font-size: var(--font-s);
+  background-color: grey;
+  display: none;
+  border-radius: 4px;
+}
+
+.product-stats-icon:hover .product-stats-tooltip{
+  display: block;
+}
+
+.product-category{
+  font-size: var(--font-s);
+}
+
+.product-name{
+  font-size: var(--font-h5);
+  font-weight: 700;
+  margin-top: 0.5rem;
+}
+
+.product-image{
+  background-color: grey;
+  aspect-ratio: 3/2;
+  margin: 1rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.product-bottom-section{
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.product-add-to-cart{
+  background-color: grey;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 3rem;
+  aspect-ratio: 1/1;
+  top: 90%;
+}
+
+.product-item{
+
+}
+
+/*  
+  Widths for product 
+  category 90px
+  name 100px
+  image 100%
+  price 70px
+  cart 42px
+  stats icon 25px
+*/
+

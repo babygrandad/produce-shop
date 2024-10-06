@@ -7,6 +7,7 @@ import { GetProducts } from "../../utils/Api/ProductsApi";
 function Products() {
   const [loading, setLoading] = useState(true);
   const [products, setProducts] = useState([]);
+  const [skeletonCount] = useState(8);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [fruitCount, setFruitCount] = useState(0);
   const [vegCount, setVegCount] = useState(0);
@@ -64,14 +65,15 @@ function Products() {
 
   return (
     <div className={`${styles["products-container"]}`}>
-      <SkeletonGridCard />
-      <SkeletonGridCard />
-      <SkeletonGridCard />
-      <SkeletonGridCard />
-      <SkeletonGridCard />
-      <SkeletonGridCard />
-      <SkeletonGridCard />
-      <SkeletonGridCard />
+      {loading
+        ? // Render skeleton loader while data is being fetched
+          Array.from({ length: skeletonCount }).map((_, index) => (
+            <SkeletonGridCard key={index} />
+          ))
+        : // Render actual product data once it's loaded
+          products.map((product) => (
+            <ProductGridCard key={product.id} product={product} />
+          ))}
     </div>
   );
 }

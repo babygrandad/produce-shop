@@ -1,20 +1,30 @@
 import React from 'react'
 import styles from './ProductGridCard.module.css'
 import { NavLink } from 'react-router-dom'
+import {AddShoppingCart, BarChart} from '@mui/icons-material'
 
-function ProductGridCard({ id = 1, description, salePrice, category, image }) {
+function ProductGridCard({ product }) {
+  const { id, description, salePrice, category, image } = product;
+  
+  // converts the int values to float values
+  const formattedPrice = parseFloat(salePrice).toFixed(2);
+
 	return (
     <div key={id} className={styles['product-grid-card']}>
-      <div className={styles["product-stats-icon"]}>
-        X
+      <div className={`${styles["product-stats-icon"]} ${styles["product-item"]}`}>
+        <BarChart />
         <span className={styles['product-stats-tooltip']}>View product stats.</span>
       </div>
-      <div className={`${styles["product-category"]} ${styles["product-item"]}`}>Categoy</div>
-      <div className={`${styles["product-name"]} ${styles["product-item"]}`}>Name</div>
-      <div className={`${styles["product-image"]} ${styles["product-item"]}`}>Image</div>
+      <div className={`${styles["product-category"]} ${styles["product-item"]}`}>{category}</div>
+      <div className={`${styles["product-name"]} ${styles["product-item"]}`}>{description}</div>
+      <div className={`${styles["product-image"]} ${styles["product-item"]}`}>
+        <img src={image} alt="" />
+      </div>
       <div className={styles["product-bottom-section"]}>
-        <div className={`${styles["product-price"]} ${styles["product-item"]}`}>Price</div>
-        <div className={`${styles["product-add-to-cart"]} ${styles["product-item"]}`}>X</div>
+        <div className={`${styles["product-price"]} ${styles["product-item"]}`}>$ {formattedPrice}</div>
+        <div className={`${styles["product-add-to-cart"]} ${styles["product-item"]}`}>
+          <AddShoppingCart />
+        </div>
       </div>
     </div>
   );

@@ -4,6 +4,11 @@
   --font-one: "Poppins", sans-serif;
   --font-two: "SUSE", sans-serif;
 
+  /*  Real colours to be used later */
+  --primary-clr:rgb(0 86 59);
+  --accent-clr:rgb(221 167 123);
+  --base-clr: rgb(254 250 224);
+
   /*  Temporary colour weights for text */
   --text-default: rgb(0 0 0);
   --text-white: rgb(255 255 255);

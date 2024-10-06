@@ -1,22 +1,25 @@
 .product-grid-card{
-  border: 1px solid;
-  /* aspect-ratio: 1/1; */
   padding: 1rem;
   position: relative;
+  background-color: var(--clr-white);
+  border-radius: .75rem;
+  box-shadow: rgba(14, 63, 126, 0.04) 0px 0px 0px 1px, rgba(42, 51, 69, 0.04) 0px 1px 1px -0.5px, rgba(42, 51, 70, 0.04) 0px 3px 3px -1.5px, rgba(42, 51, 70, 0.04) 0px 6px 6px -3px, rgba(14, 63, 126, 0.04) 0px 12px 12px -6px, rgba(14, 63, 126, 0.04) 0px 24px 24px -12px;
 }
 
-.product-stats-icon{
+.product-stats-icon{ /* change the bg-colour to use root colour */
   left: calc(100% - 1rem);
   transform: translateX(-100%);
   position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: grey;
+  background-color: var(--primary-clr);
+  color: var(--clr-base);
   cursor: pointer;
   border-radius: 50%;
   aspect-ratio: 1/1;
-  width: 1.5rem;
+  width: 1.75rem;
+
 }
 
 .product-stats-tooltip{
@@ -26,13 +29,16 @@
   transform: translateX(-105%);
   padding: 0 0.5rem;
   font-size: var(--font-s);
-  background-color: grey;
-  display: none;
+  background-color: var(--primary-clr);
+  color: var(--clr-base);
+  visibility:hidden;
   border-radius: 4px;
+  transition: 0.3s linear;
 }
 
 .product-stats-icon:hover .product-stats-tooltip{
-  display: block;
+  visibility:visible;
+  transition: 0.3s linear;
 }
 
 .product-category{
@@ -42,7 +48,7 @@
 .product-name{
   font-size: var(--font-h5);
   font-weight: 700;
-  margin-top: 0.5rem;
+  color: var(--accent-clr);
 }
 
 .product-image{
@@ -52,6 +58,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 0.5rem;
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0.5rem;
 }
 
 .product-bottom-section{
@@ -61,8 +75,13 @@
   align-items: center;
 }
 
+.product-price{
+  color: var(--clr-grey);
+}
+
 .product-add-to-cart{
-  background-color: grey;
+  background-color: var(--primary-clr);
+  color: var(--clr-base);
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -70,10 +89,6 @@
   width: 3rem;
   aspect-ratio: 1/1;
   top: 90%;
-}
-
-.product-item{
-
 }
 
 /*  

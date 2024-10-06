@@ -1,9 +1,27 @@
 .skeleton-grid-card{
-  border: 1px solid;
-  /* aspect-ratio: 1/1; */
+
+  border-radius: 0.75rem;
   padding: 1rem;
   position: relative;
+  background-color: var(--clr-white);
 }
+
+.skeleton-item {
+  background: linear-gradient(45deg, rgba(254,250,224,1) 0%, rgba(128,128,128,1) 100%);
+  border-radius: .5rem;
+  background-size: 200% 100%; /* Ensures the gradient covers more space for the animation */
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
 
 .skeleton-stats-icon{
   left: calc(100% - 1rem);
@@ -81,10 +99,6 @@
   width: 3rem;
   aspect-ratio: 1/1;
   top: 90%;
-}
-
-.skeleton-item{
- background-color:  grey;
 }
 
 /*  

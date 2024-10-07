@@ -4,7 +4,7 @@ import styles from './ProductSales.module.css';
 import { GetRecords } from '../../utils/Api/SaleHistoryApi';
 import { GetProducts } from '../../utils/Api/ProductsApi';
 import ProductBannerSkeleton from '../../Components/ProductBannerSkeleton/ProductBannerSkeleton';
-import AnalyticsOverview from '../../Components/AnalyticsOverview/AnalyticsOverview';
+import AnalyticsOverview from '../../Components/AnalyticsComponents/AnalyticsOverview/AnalyticsOverview';
 import { AnalyticsOutlined } from '@mui/icons-material';
 
 

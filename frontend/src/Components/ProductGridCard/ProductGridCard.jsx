@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './ProductGridCard.module.css'
 import { NavLink } from 'react-router-dom'
-import {AddShoppingCart, BarChart} from '@mui/icons-material'
+import {AddShoppingCart, AnalyticsOutlined} from '@mui/icons-material'
 
 function ProductGridCard({ product }) {
   const { id, description, salePrice, category, image } = product;
@@ -15,7 +15,7 @@ function ProductGridCard({ product }) {
 			 to={`/product-sales/${id}`}
 			 state={{ product }}
 			className={`${styles["product-stats-icon"]} ${styles["product-item"]}`}>
-        <BarChart />
+        <AnalyticsOutlined />
         <span className={styles['product-stats-tooltip']}>View product sales.</span>
       </NavLink>
       <div className={`${styles["product-category"]} ${styles["product-item"]}`}>{category}</div>

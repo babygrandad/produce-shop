@@ -4,6 +4,8 @@ import styles from './ProductSales.module.css';
 import { GetRecords } from '../../utils/Api/SaleHistoryApi';
 import { GetProducts } from '../../utils/Api/ProductsApi';
 import ProductBannerSkeleton from '../../Components/ProductBannerSkeleton/ProductBannerSkeleton';
+import AnalyticsOverview from '../../Components/AnalyticsOverview/AnalyticsOverview';
+import { AnalyticsOutlined } from '@mui/icons-material';
 
 
 function ProductSales() {
@@ -40,7 +42,7 @@ function ProductSales() {
   return (
     <div className={styles['sale-history-container']}>
      <ProductBannerSkeleton />
-
+			<AnalyticsOverview />
 		 {/*3 or 4 grid display with the things mentioned on chat gpt*/}
     </div>
   );

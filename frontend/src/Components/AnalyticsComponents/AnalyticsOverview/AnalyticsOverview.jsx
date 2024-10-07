@@ -28,11 +28,7 @@ function AnalyticsOverview() {
 				<span className={styles['overview-value']}>25.2k</span>
 				<span className={styles['overview-name']}>Avarage Sale Price</span>
 			</div>
-
-			<div className={styles["analytics-chart-container"]}>
-				<span className={styles['analytics-chart-area']}> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vel labore, repellendus optio possimus consectetur ipsam aliquid sequi ratione eos eius voluptatem porro tempora, accusantium dolorem ex maxime. Atque, ex voluptate! </span>
-			</div>
-
+      
 		</div>
 	)
 }

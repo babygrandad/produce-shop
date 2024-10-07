@@ -1,6 +1,6 @@
 .analytics-overview-skeleton-container{
 	display: grid;
-  /*grid-template-columns: repeat(auto-fit,300px);*/
+  grid-template-columns: repeat(auto-fit,300px);
 	margin-top: 2rem;
   gap: 1rem;
   justify-content: center;

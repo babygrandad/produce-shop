@@ -1,0 +1,5 @@
+.analytics-chart-container{
+  max-width: calc(300px * 4 + 3rem);
+  margin: auto;
+  margin-top: 2rem;
+}

@@ -16,7 +16,7 @@
   left: 0;
   align-self: start;
 
-  height: 100svh;
+  height: 100lvh;
 }
 .home-container header{
   grid-area: header;

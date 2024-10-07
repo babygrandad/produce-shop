@@ -1,40 +1,48 @@
-import React, {useState} from 'react'
-import { Outlet } from 'react-router-dom'
-import styles from './Home.module.css'
-import Topbar from '../../Components/Topbar/Topbar'
-import Sidemenu from '../../Components/Sidemenu/Sidemenu'
-import FilterBar from '../../Components/FilterBar/FilterBar'
+import React, { useState } from 'react';
+import { Outlet, useLocation } from 'react-router-dom';
+import styles from './Home.module.css';
+import Topbar from '../../Components/Topbar/Topbar';
+import Sidemenu from '../../Components/Sidemenu/Sidemenu';
+import FilterBar from '../../Components/FilterBar/FilterBar';
 
 function Home() {
   const [searchInput, setSearchInput] = useState("");
   const [activeFilter, setActiveFilter] = useState("All");
+  const [categoryCounts, setCategoryCounts] = useState({
+    all: 0,
+    fruit: 0,
+    veg: 0,
+  });
+
+	const location = useLocation(); // Get the current route
 
   const handleSearch = (input) => {
-    setSearchInput(input); // Update the state with the search input
+    setSearchInput(input);
   };
 
   const handleFilterChange = (category) => {
-    setActiveFilter(category); // Update the active filter
+    setActiveFilter(category);
   };
 
   return (
+    <div className={`${styles['home-container']}`}>
+      <Sidemenu />
+      <Topbar onSearch={handleSearch} />
 
-   <div className={`${styles['home-container']} `}>
-    <Sidemenu />
-    <Topbar onSearch={handleSearch} />
-
-    <main>
-    <FilterBar
-          onFilterChange={handleFilterChange}
-          all
-          fruit
-          veg
-        />
-      <Outlet context={{ searchInput, activeFilter }}/>
-    </main>
-    <footer>footer</footer>
-   </div>
-  )
+      <main>
+			{location.pathname === "/shop" && (
+          <FilterBar
+            onFilterChange={handleFilterChange}
+            all={categoryCounts.all}
+            fruit={categoryCounts.fruit}
+            veg={categoryCounts.veg}
+          />
+        )}
+        <Outlet context={{ searchInput, activeFilter, setCategoryCounts }} />
+      </main>
+      <footer>footer</footer>
+    </div>
+  );
 }
 
-export default Home
+export default Home;

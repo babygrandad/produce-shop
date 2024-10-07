@@ -45,6 +45,7 @@ body {
   font-family: var(--font-one);
   max-width: 1920px;
   background-color: var(--clr-base);
+	margin: 0 auto;
 }
 
 .button {

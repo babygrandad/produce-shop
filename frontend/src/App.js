@@ -7,13 +7,16 @@ import {
 import "./App.css";
 import Home from "./Pages/Home/Home";
 import Products from "./Pages/Products/Products";
+import ProductSales from "./Pages/ProductSales/ProductSales";
 
 function App() {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Home />}>
+          <Route index element={<Navigate to="shop" />} />
           <Route path="shop" element={<Products />} />
+					<Route path="product-sales/:id" element={<ProductSales />} />
         </Route>
       </Routes>
     </Router>

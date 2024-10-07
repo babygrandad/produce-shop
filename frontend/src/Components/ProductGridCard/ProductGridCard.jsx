@@ -11,10 +11,13 @@ function ProductGridCard({ product }) {
 
 	return (
     <div key={id} className={styles['product-grid-card']}>
-      <div className={`${styles["product-stats-icon"]} ${styles["product-item"]}`}>
+      <NavLink
+			 to={`/product-sales/${id}`}
+			 state={{ product }}
+			className={`${styles["product-stats-icon"]} ${styles["product-item"]}`}>
         <BarChart />
-        <span className={styles['product-stats-tooltip']}>View product stats.</span>
-      </div>
+        <span className={styles['product-stats-tooltip']}>View product sales.</span>
+      </NavLink>
       <div className={`${styles["product-category"]} ${styles["product-item"]}`}>{category}</div>
       <div className={`${styles["product-name"]} ${styles["product-item"]}`}>{description}</div>
       <div className={`${styles["product-image"]} ${styles["product-item"]}`}>

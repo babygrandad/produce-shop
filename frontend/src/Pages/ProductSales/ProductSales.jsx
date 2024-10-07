@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { NavLink, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import styles from './ProductSales.module.css';
 import { GetRecords } from '../../utils/Api/SaleHistoryApi';
 import { GetProducts } from '../../utils/Api/ProductsApi';
-import { Home } from '@mui/icons-material';
+import ProductBannerSkeleton from '../../Components/ProductBannerSkeleton/ProductBannerSkeleton';
+
 
 function ProductSales() {
   const { id } = useParams();
@@ -17,7 +18,7 @@ function ProductSales() {
       setLoading(true);
       try {
         const products = await GetProducts();
-        const foundProduct = products.data.find(item => item.id == id); // Compare with "=="
+        const foundProduct = products.data.find(item => item.id === id); // Compare with "=="
         setProduct(foundProduct);
 				console.log("The One Product: ",product) // thats fine that works
 
@@ -25,7 +26,7 @@ function ProductSales() {
         setSaleRecords(record.data);
 				console.log("Sale Records :", record.data) // I'd like to think thats populating fine too
 
-				
+
       } catch (error) {
         console.error("Error fetching data:", error);
       } finally {
@@ -34,11 +35,13 @@ function ProductSales() {
     };
 
     fetchProductAndRecords(id);
-  }, [id]);
+  }, [id, product]); // remove products if its causing a problem
 
   return (
     <div className={styles['sale-history-container']}>
-      product sales
+     <ProductBannerSkeleton />
+
+		 {/*3 or 4 grid display with the things mentioned on chat gpt*/}
     </div>
   );
 }

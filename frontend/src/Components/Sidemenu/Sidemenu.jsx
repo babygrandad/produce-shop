@@ -11,7 +11,7 @@ function Sidemenu() {
         </div>
         <nav className={styles['main-nav']}>
           <ul>
-            <li><a href=""><Store className={styles['sidemenu-icon']} /><span>Shop</span></a></li>
+            <li><a href="/shop"><Store className={styles['sidemenu-icon']} /><span>Shop</span></a></li>
             <li><a href=""><Person className={styles['sidemenu-icon']} /><span>Profile</span></a></li>
             <li><a href=""><ShoppingCart className={styles['sidemenu-icon']} /><span>Cart</span></a></li>
             <li><a href=""><ManageAccounts className={styles['sidemenu-icon']} /><span>Management</span></a></li>

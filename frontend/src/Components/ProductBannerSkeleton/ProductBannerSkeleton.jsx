@@ -1,18 +1,22 @@
 import React from "react";
 import styles from "./ProductBannerSkeleton.module.css";
 
-function ProductBannerSkeleton() {
+function ProductBannerSkeleton({ product }) { 
+  const {id, description, salePrice, category, image} = product
+  const formattedPrice = parseFloat(salePrice).toFixed(2);
+
+
   return (
     <div className={styles["banner-skeleton-container"]}>
       <div className={styles["banner-skeleton-image-wrapper"]}>
-        <div className={`${styles["banner-skeleton-image"]} ${styles["skeleton-item"]}`}>Image</div>
+        <img src={image} className={`${styles["banner-skeleton-image"]} ${styles["skeleton-item"]}`}/>
       </div>
       <div className={styles["banner-skeleton-details-wrapper"]}>
 			<span className={`${styles["banner-product-summary"]} `}>Product Summery</span>
-        <div className={`${styles["banner-skeleton-category"]} ${styles["skeleton-item"]}`}>Fruit</div>
-        <div className={`${styles["banner-skeleton-name"]} ${styles["skeleton-item"]}`}>Mango</div>
+        <div className={`${styles["banner-skeleton-category"]} ${styles["skeleton-item"]}`}>{category}</div>
+        <div className={`${styles["banner-skeleton-name"]} ${styles["skeleton-item"]}`}>{description}</div>
 				<div className={`${styles["banner-skeleton-current-price"]} ${styles["skeleton-item"]}`}>Current Price:</div>
-				<div className={`${styles["banner-skeleton-price-value"]} ${styles["skeleton-item"]}`}>R 19.00</div>
+				<div className={`${styles["banner-skeleton-price-value"]} ${styles["skeleton-item"]}`}>R {formattedPrice}</div>
       </div>
     </div>
   );

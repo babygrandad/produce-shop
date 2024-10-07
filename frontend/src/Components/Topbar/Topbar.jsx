@@ -8,12 +8,6 @@ function Topbar({ onSearch }) {
 
 	const location = useLocation(); // Get the current route
 
-  const handleClear = (e) => {
-    e.preventDefault();
-    setSearchInput('');
-    onSearch(''); 
-  };
-
   const handleInputChange = (event) => {
     setSearchInput(event.target.value);
     onSearch(event.target.value); 

@@ -4,6 +4,10 @@ import styles from './Home.module.css';
 import Topbar from '../../Components/Topbar/Topbar';
 import Sidemenu from '../../Components/Sidemenu/Sidemenu';
 import FilterBar from '../../Components/FilterBar/FilterBar';
+import Login from '../Login/Login';
+import Register from '../Register/Register';
+import ForgotPassword from '../ForgotPassword/ForgotPassword';
+import ResetPassword from '../ResetPassword/ResetPassword';
 
 function Home() {
   const [searchInput, setSearchInput] = useState("");
@@ -28,7 +32,6 @@ function Home() {
     <div className={`${styles['home-container']}`}>
       <Sidemenu />
       <Topbar onSearch={handleSearch} />
-
       <main>
 			{location.pathname === "/shop" && (
           <FilterBar
@@ -40,6 +43,7 @@ function Home() {
         )}
         <Outlet context={{ searchInput, activeFilter, setCategoryCounts }} />
       </main>
+			{/*<ForgotPassword />*/}
       <footer>footer</footer>
     </div>
   );

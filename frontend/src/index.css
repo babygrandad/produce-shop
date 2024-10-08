@@ -5,9 +5,12 @@
   --font-two: "SUSE", sans-serif;
 
   /*  Real colours to be used later */
-  --primary-clr:rgb(0 86 59);
-  --accent-clr:rgb(221 167 123);
-  --base-clr: hsl(48, 17%, 94%);
+  --primary-clr:hsl(161, 100%, 17%);
+  --accent-clr:hsl(27, 59%, 67%);
+  --base-clr: hsl(48, 16%, 94%);
+
+	--primary-hover-clr: hsl(161, 60%, 17%);
+	--accent-hover-clr: hsl(27, 49%, 67%);
 
   /*  Temporary colour weights for text */
   --text-default: rgb(0 0 0);

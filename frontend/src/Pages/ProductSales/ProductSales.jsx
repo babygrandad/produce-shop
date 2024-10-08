@@ -5,11 +5,11 @@ import { useParams } from 'react-router-dom';
 import styles from './ProductSales.module.css';
 import { GetRecords } from '../../utils/Api/SaleHistoryApi';
 import { GetProducts } from '../../utils/Api/ProductsApi';
-import ProductBannerSkeleton from '../../Components/AnalyticsComponents/ProductBannerSkeleton/ProductBannerSkeleton';
+import ProductBannerSkeleton from '../../Components/ProductBannerSkeleton/ProductBannerSkeleton';
 import AnalyticsOverview from '../../Components/AnalyticsComponents/AnalyticsOverview/AnalyticsOverview';
 import AnalyticsChart from '../../Components/AnalyticsComponents/AnalyticsChart/AnalyticsChart';
 import AnalyticsTable from '../../Components/AnalyticsComponents/AnalyticsTable/AnalyticsTable';
-import ProductBanner from '../../Components/AnalyticsComponents/ProductBanner/ProductBanner';
+import ProductBanner from '../../Components/ProductBanner/ProductBanner';
 
 function ProductSales() {
   const { id } = useParams();
@@ -28,15 +28,21 @@ function ProductSales() {
       setLoading(true);
       try {
         const products = await GetProducts();
-        const foundProduct = products.data.find(item => item.id == id);
+        const foundProduct = products.data.find((item) => item.id == id);
         setProduct(foundProduct);
 
         const record = await GetRecords(id);
         setSaleRecords(record.data);
 
         if (record.data.length > 0) {
-          const totalSold = record.data.reduce((sum, rec) => sum + rec.saleQty, 0);
-          const totalRevenue = record.data.reduce((sum, rec) => sum + (rec.salePrice * rec.saleQty), 0);
+          const totalSold = record.data.reduce(
+            (sum, rec) => sum + rec.saleQty,
+            0
+          );
+          const totalRevenue = record.data.reduce(
+            (sum, rec) => sum + rec.salePrice * rec.saleQty,
+            0
+          );
           const averageQuantity = totalSold / record.data.length;
           const averageSales = totalRevenue / totalSold;
 
@@ -45,6 +51,7 @@ function ProductSales() {
             totalSold,
             averageQuantity: averageQuantity.toFixed(2),
             averageSales: averageSales.toFixed(2),
+           
           });
         }
       } catch (error) {

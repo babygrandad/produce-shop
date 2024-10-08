@@ -21,7 +21,7 @@
   --clr-default: rgb(0 0 0);
   --clr-white: rgb(255 255 255);
   --clr-grey: rgb(128 128 128);
-  --clr-base: hsl(60, 6%, 95%);
+  --clr-base: hsl(60, 6%, 85%);
   --clr-primary: rgb(64 64 64); /* A darker grey for primary */
   --clr-accent: rgb(192 192 192); /* A lighter grey for accent/secondary colour */
   

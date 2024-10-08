@@ -7,7 +7,7 @@
 	margin-top: 2rem auto 0 auto;
 }
 
-.analitic-overview-card{
+.analytic-overview-card{
 	background-color: white;
 	width: 100%;
 	aspect-ratio: 6/5;
@@ -22,19 +22,20 @@
 
 .overview-icon{
 	transform: scale(3);
-	color: var(--clr-grey);
+	color: var(--accent-clr);
 	margin-bottom: 1.75rem;
 }
 
 .overview-value{
 	font-size: var(--font-h3);
 	font-weight: 700;
+	color: var(--cl);
 }
 
 .overview-name{
 	font-size: var(--font-s);
 	font-weight: 500;
-	color: var(--clr-grey);
+	color: var(--primary-clr);
 }
 
 .analytics-chart-container{

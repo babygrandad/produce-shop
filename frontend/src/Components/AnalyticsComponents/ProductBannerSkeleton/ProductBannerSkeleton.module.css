@@ -1,4 +1,6 @@
 .banner-skeleton-container{
+	max-width: calc(300px * 4 + 3rem);
+	margin: auto;
 	background-color: white;
 	width: 100%;
 	display: grid;
@@ -9,8 +11,20 @@
   box-shadow: rgba(14, 63, 126, 0.04) 0px 0px 0px 1px, rgba(42, 51, 69, 0.04) 0px 1px 1px -0.5px, rgba(42, 51, 70, 0.04) 0px 3px 3px -1.5px, rgba(42, 51, 70, 0.04) 0px 6px 6px -3px, rgba(14, 63, 126, 0.04) 0px 12px 12px -6px, rgba(14, 63, 126, 0.04) 0px 24px 24px -12px;
 }
 
-.skeleton-item{
+.skeleton-item {
+  background: linear-gradient(45deg, rgba(254,250,224,1) 0%, rgba(128,128,128,1) 100%);
+  border-radius: .5rem;
+  background-size: 200% 100%; /* Ensures the gradient covers more space for the animation */
+  animation: shimmer 3s infinite;
+}
 
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
 }
 
 .banner-skeleton-image{
@@ -31,9 +45,10 @@
 }
 
 .banner-product-summary{
-	font-weight: 700;
-	font-size: var(--font-h3);
 	margin-bottom: 2rem;
+	width: 260px;
+	height: calc(var(--font-h3) + 1rem);
+	/* width */
 }
 
 .banner-skeleton-category,
@@ -43,19 +58,24 @@
 }
 
 .banner-skeleton-category{
-
+	height: 1.25rem;
+	width: 100px;
+	margin-bottom: .5rem;
 }
 
 .banner-skeleton-name{
-	font-weight: 700;
-	font-size: var(--font-h5);
+	height: 1.75rem;
+	width: 100px;
 	margin-bottom: 1rem;
 }
 
 .banner-skeleton-current-price{
-font-size: var(--font-h4);
+height: 2rem;
+width: 150px;
+margin-bottom: .25rem;
 }
 
-.banner-skeleton-current-price{
-	
+.banner-skeleton-price-value{
+	width: 60px;
+	height: 1.25rem;
 }

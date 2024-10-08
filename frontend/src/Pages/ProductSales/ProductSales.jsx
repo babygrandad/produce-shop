@@ -5,9 +5,11 @@ import { useParams } from 'react-router-dom';
 import styles from './ProductSales.module.css';
 import { GetRecords } from '../../utils/Api/SaleHistoryApi';
 import { GetProducts } from '../../utils/Api/ProductsApi';
-import ProductBannerSkeleton from '../../Components/ProductBannerSkeleton/ProductBannerSkeleton';
+import ProductBannerSkeleton from '../../Components/AnalyticsComponents/ProductBannerSkeleton/ProductBannerSkeleton';
 import AnalyticsOverview from '../../Components/AnalyticsComponents/AnalyticsOverview/AnalyticsOverview';
 import AnalyticsChart from '../../Components/AnalyticsComponents/AnalyticsChart/AnalyticsChart';
+import AnalyticsTable from '../../Components/AnalyticsComponents/AnalyticsTable/AnalyticsTable';
+import ProductBanner from '../../Components/AnalyticsComponents/ProductBanner/ProductBanner';
 
 function ProductSales() {
   const { id } = useParams();
@@ -58,12 +60,13 @@ function ProductSales() {
   return (
     <div className={styles["sale-history-container"]}>
       {product ? (
-        <ProductBannerSkeleton product={product} />
+        <ProductBanner product={product} />
       ) : (
-        <div>Loading product details...</div>
+        <ProductBannerSkeleton/>
       )}
       <AnalyticsOverview overview={overview} />
       <AnalyticsChart saleRecords={saleRecords} />
+			<AnalyticsTable saleRecords={saleRecords} />
     </div>
   );
 }

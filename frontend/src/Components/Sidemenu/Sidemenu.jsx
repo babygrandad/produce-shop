@@ -6,9 +6,11 @@ function Sidemenu() {
 	return (
 		<aside className={`${styles['sidemenu-container']}`}>
       <div className={styles["sidemenu-wrapper"]}>
+
         <div className={styles["logo-container"]}>
           <img src={logo} alt="" className={styles["logo-image"]} />
         </div>
+
         <nav className={styles['main-nav']}>
           <ul>
             <li><a href="/shop"><Store className={styles['sidemenu-icon']} /><span>Shop</span></a></li>
@@ -17,10 +19,11 @@ function Sidemenu() {
             <li><a href=""><ManageAccounts className={styles['sidemenu-icon']} /><span>Management</span></a></li>
           </ul>
         </nav>
-        
+
         <div className={styles["logout-container"]}>
           <ul><li><a href=""><Logout className={styles['sidemenu-icon']} /><span>Logout</span></a></li></ul>
         </div>
+				
       </div>
 		</aside>
 	)

@@ -69,7 +69,7 @@ namespace api.Controllers
 				await _passwordHistoryService.AddPasswordAsync(appUser.Id, passwordHash);
 
 				var emailToken = await _userManager.GenerateEmailConfirmationTokenAsync(appUser);
-				var confirmationLink = Url.Action("ConfirmEmail",
+				var confirmationLink = Url.Action("confirm-email",
 																					"Account",
 																					new
 																					{
@@ -166,11 +166,11 @@ namespace api.Controllers
 				var maxFailedAccessAttempts = _userManager.Options.Lockout.MaxFailedAccessAttempts;
 				var attemptsLeft = maxFailedAccessAttempts - accessFailedCount;
 
-				return Unauthorized(new { message = $"Invalid username or password. You have {attemptsLeft} attemps left" });
+				return Unauthorized(new { message = $"Invalid username or password. You have {attemptsLeft} attempts left" });
 			}
 		}
 
-		[HttpGet("ConfirmEmail")]
+		[HttpGet("confirm-email")]
 		public async Task<IActionResult> ConfirmEmail(string userId, string token)
 		{
 			if (userId == null || token == null)

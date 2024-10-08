@@ -11,4 +11,8 @@
 		"breadcrumbs.showInterfaces": true,
 	},
 	"csharp.format.enable": true,
+	"cSpell.words": [
+		"Dtos",
+		"Hasher"
+	],
 }

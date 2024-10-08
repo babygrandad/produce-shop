@@ -47,11 +47,10 @@ function ProductSales() {
           const averageSales = totalRevenue / totalSold;
 
           setOverview({
-            totalRevenue: totalRevenue.toFixed(2),
-            totalSold,
-            averageQuantity: averageQuantity.toFixed(2),
-            averageSales: averageSales.toFixed(2),
-           
+            totalRevenue: formatNumber(totalRevenue), // Format total revenue
+        		totalSold: formatNumber(totalSold),       // Format total sold
+       			averageQuantity: formatNumber(averageQuantity, 1), // Format average quantity
+        		averageSales: formatNumber(averageSales, 1), // Format average sales
           });
         }
       } catch (error) {
@@ -63,6 +62,17 @@ function ProductSales() {
 
     fetchProductAndRecords(id);
   }, [id]);
+
+	const formatNumber = (num, decimals = 0) => {
+    if (num >= 1e6) {
+        return (num / 1e6).toFixed(2) + 'M'; // Format to millions with 2 decimal places
+    } else if (num >= 1e3) {
+        return (num / 1e3).toFixed(0) + 'K'; // Format to thousands without decimals
+    }
+    return num.toFixed(decimals); // Format with specified decimals for smaller numbers
+};
+
+
 
   return (
     <div className={styles["sale-history-container"]}>

@@ -2,6 +2,7 @@ import React from 'react'
 import styles from './Sidemenu.module.css'
 import logo from '../../assets/Garden Palette Logo.png'
 import {Store, Person, ShoppingCart, Logout } from '@mui/icons-material';
+
 function Sidemenu() {
 	return (
 		<aside className={`${styles['sidemenu-container']}`}>
@@ -15,7 +16,7 @@ function Sidemenu() {
           <ul>
             <li><a href="/shop"><Store className={styles['sidemenu-icon']} /><span>Shop</span></a></li>
             <li><a href="/profile "><Person className={styles['sidemenu-icon']} /><span>Profile</span></a></li>
-            <li><a href="/cart"><ShoppingCart className={styles['sidemenu-icon']} /><span>Cart</span></a></li>
+            <li><a href="/cart"><ShoppingCart className={styles['sidemenu-icon']} /><span>Cart</span> <span className={styles["cart-count"]}>90</span></a></li>
 						{/*link omitted due to time constraints. I will implement it on my spare time*/}
             {/*<li><a href="/accounts"><ManageAccounts className={styles['sidemenu-icon']} /><span>Management</span></a></li>*/} 
           </ul>

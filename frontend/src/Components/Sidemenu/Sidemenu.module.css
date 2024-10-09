@@ -46,6 +46,7 @@
   border-radius: .5rem;
   color: var(--clr-default);
   text-decoration: none;
+	position: relative;
 }
 
 .sidemenu-wrapper ul li a:hover{
@@ -57,6 +58,22 @@
 
 .sidemenu-icon{
   color: var(--primary-clr);
+}
+
+.cart-count{
+	font-size: var(--font-s);
+	background-color: greenyellow;
+	aspect-ratio: 1/1;
+	height: 1.25rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50%;
+	font-weight: 700;
+	position: absolute;
+	top: calc(0% + 5px);
+	left: calc(0% + 2.3rem);
+	color: var(--clr-default);
 }
 
 .logout-container{

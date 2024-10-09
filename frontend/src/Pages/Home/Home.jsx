@@ -8,6 +8,8 @@ import Login from '../Login/Login';
 import Register from '../Register/Register';
 import ForgotPassword from '../ForgotPassword/ForgotPassword';
 import ResetPassword from '../ResetPassword/ResetPassword';
+import ChangePassword from '../ChangePassword/ChangePassword';
+import EditProfile from '../EditProfile/EditProfile';
 
 function Home() {
   const [searchInput, setSearchInput] = useState("");
@@ -43,7 +45,7 @@ function Home() {
         )}
         <Outlet context={{ searchInput, activeFilter, setCategoryCounts }} />
       </main>
-			{/*<ForgotPassword />*/}
+			{/*<EditProfile />*/}
     </div>
   );
 }

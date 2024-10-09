@@ -65,11 +65,11 @@ function ProductSales() {
 
 	const formatNumber = (num, decimals = 0) => {
     if (num >= 1e6) {
-        return (num / 1e6).toFixed(2) + 'M'; // Format to millions with 2 decimal places
+        return (num / 1e6).toFixed(2) + 'M'; 
     } else if (num >= 1e3) {
-        return (num / 1e3).toFixed(0) + 'K'; // Format to thousands without decimals
+        return (num / 1e3).toFixed(0) + 'K'; 
     }
-    return num.toFixed(decimals); // Format with specified decimals for smaller numbers
+    return num.toFixed(decimals); 
 };
 
 

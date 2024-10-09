@@ -2,14 +2,14 @@ import React from 'react'
 import styles from './ProductBanner.module.css'
 
 function ProductBanner( { product } ) {
-	const {id, description, salePrice, category, image} = product
+	const {description, salePrice, category, image} = product
   const formattedPrice = parseFloat(salePrice).toFixed(2);
 
 
 	return (
 		<div className={styles["banner-product-container"]}>
       <div className={styles["banner-product-image-wrapper"]}>
-        <img src={image} className={`${styles["banner-product-image"]} ${styles["product-item"]}`}/>
+        <img src={image} alt='' className={`${styles["banner-product-image"]} ${styles["product-item"]}`}/>
       </div>
       <div className={styles["banner-product-details-wrapper"]}>
 			<span className={`${styles["banner-product-summary"]} `}>Product Summary</span>

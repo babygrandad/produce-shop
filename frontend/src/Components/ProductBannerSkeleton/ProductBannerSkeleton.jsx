@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./ProductBannerSkeleton.module.css";
 
-function ProductBannerSkeleton({ }) { 
+function ProductBannerSkeleton() { 
 
 
 

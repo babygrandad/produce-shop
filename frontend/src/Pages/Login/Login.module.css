@@ -81,7 +81,7 @@
 	color: var(--clr-base);
 	font-size: var(--font-n);
 	transition: 0.3s;
-}
+} 
 
 .form-button:hover{
 	background-color: var(--primary-hover-clr);

@@ -1,35 +1,60 @@
-import React from 'react'
-import styles from './Sidemenu.module.css'
-import logo from '../../assets/Garden Palette Logo.png'
-import {Store, Person, ShoppingCart, Logout } from '@mui/icons-material';
+import React, { useState } from "react";
+import styles from "./Sidemenu.module.css";
+import logo from "../../assets/Garden Palette Logo.png";
+import { Store, Person, ShoppingCart, Logout } from "@mui/icons-material";
 
 function Sidemenu() {
-	return (
-		<aside className={`${styles['sidemenu-container']}`}>
+  const [cartCount, setCartCount] = useState(0)
+  return (
+    <aside className={`${styles["sidemenu-container"]}`}>
       <div className={styles["sidemenu-wrapper"]}>
-
         <div className={styles["logo-container"]}>
           <img src={logo} alt="" className={styles["logo-image"]} />
         </div>
 
-        <nav className={styles['main-nav']}>
+        <nav className={styles["main-nav"]}>
           <ul>
-            <li><a href="/shop"><Store className={styles['sidemenu-icon']} /><span>Shop</span></a></li>
-            <li><a href="/profile "><Person className={styles['sidemenu-icon']} /><span>Profile</span></a></li>
-            <li><a href="/cart"><ShoppingCart className={styles['sidemenu-icon']} /><span>Cart</span> <span className={styles["cart-count"]}>90</span></a></li>
-						{/*link omitted due to time constraints. I will implement it on my spare time*/}
-            {/*<li><a href="/accounts"><ManageAccounts className={styles['sidemenu-icon']} /><span>Management</span></a></li>*/} 
+            <li>
+              <a href="/shop">
+                <Store className={styles["sidemenu-icon"]} />
+                <span>Shop</span>
+              </a>
+            </li>
+            <li>
+              <a href="/profile ">
+                <Person className={styles["sidemenu-icon"]} />
+                <span>Profile</span>
+              </a>
+            </li>
+            <li>
+              <a href="/cart">
+                <ShoppingCart className={styles["sidemenu-icon"]} />
+                <span>Cart</span>{" "}
+                {cartCount > 0 ? (
+                  <span className={styles["cart-count"]}>{cartCount}</span>
+                ) : (
+                  ""
+                )}
+              </a>
+            </li>
+            {/*link omitted due to time constraints. I will implement it on my spare time*/}
+            {/*<li><a href="/accounts"><ManageAccounts className={styles['sidemenu-icon']} /><span>Management</span></a></li>*/}
           </ul>
         </nav>
 
         <div className={styles["logout-container"]}>
-          <ul><li><a href="/logout"><Logout className={styles['sidemenu-icon']} /><span>Logout</span></a></li></ul>
+          <ul>
+            <li>
+              <a href="/logout">
+                <Logout className={styles["sidemenu-icon"]} />
+                <span>Logout</span>
+              </a>
+            </li>
+          </ul>
         </div>
-				
       </div>
-		</aside>
-	)
+    </aside>
+  );
 }
 
-export default Sidemenu
-
+export default Sidemenu;

@@ -24,7 +24,7 @@
 
 .product-stats-tooltip{
   position: absolute;
-  width: 131px;
+  width: max-content;
   left: 0;
   transform: translateX(-105%);
   padding: 0 0.5rem;

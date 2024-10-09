@@ -1,4 +1,31 @@
+.profile-banner-container{
+	background-color: var(--clr-white);
+	padding: 1rem;
+	border-radius: .75rem;
+	display: flex;
+	gap: 2rem;
+	flex-wrap: wrap;
+	position: relative;
+	min-width: 300px;
+}
 
+.edit-profile-button{
+	position: absolute;
+	top: calc(0% + 1rem);
+	left: calc(100% - 1rem);
+	transform: translateX(-100%);
+	border: none;
+	outline: none;
+	background-color: var(--primary-clr);
+	color: var(--clr-white);
+	height: fit-content;
+	width:max-content;
+	padding: .5rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: .25rem;
+}
 
 .edit-profile-button:hover{
 	color: var(--accent-clr);
@@ -8,6 +35,9 @@
 	font-size: var(--font-h5);
 	font-weight: 700;
 	margin-bottom: 1rem;
+	display: flex;
+	align-items: center;
+	gap: .5rem;
 }
 
 .banner-image-wrapper{
@@ -42,42 +72,6 @@ color: var(--clr-grey);
 	font-size: var(--font-s);
 	font-weight: 500;
 	margin-top: 2rem;
-	color: var(--accent-clr);
-}
-
-
-/**
-	Security
-*/
-
-.security-banner-container{
-	background-color: white;
-	margin-top: 1rem;
-	border-radius: .75rem;
-	padding: 1rem;
-	position: relative;
-	min-width: 300px;
-}
-
-.change-password-button{
-	position: absolute;
-	top: calc(0% + 1rem);
-	left: calc(100% - 1rem);
-	transform: translateX(-100%);
-	border: none;
-	outline: none;
-	background-color: var(--primary-clr);
-	color: var(--clr-white);
-	height: fit-content;
-	width:max-content;
-	padding: .5rem;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	border-radius: .25rem;
-}
-
-.change-password-button:hover{
 	color: var(--accent-clr);
 }
 

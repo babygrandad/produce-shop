@@ -1,4 +1,7 @@
 .cart-summary-container{
+	position: sticky;
+	top: calc(88px + 16px);
+	left: 0;
 	background-color: var(--clr-white);
 	min-width: 250px;
   border-radius: 0.75rem;

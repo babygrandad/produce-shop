@@ -9,6 +9,12 @@ function Cart() {
       <div className={styles["populated-cart"]}>
         <div className={styles["cart-items"]}>
 					<CartItem />
+					<CartItem />
+					<CartItem />
+					<CartItem />
+					<CartItem />
+					<CartItem />
+					
 				</div>
 
         <div className={styles["cart-summary"]}>

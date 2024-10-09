@@ -22,9 +22,6 @@
 }
 
 .cart-summary {
-	position: sticky;
-	top: calc(88px + 16px);
-	left: 0;
   grid-area: cart-summary;
 }
 

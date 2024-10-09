@@ -12,7 +12,7 @@ function ProductBanner( { product } ) {
         <img src={image} className={`${styles["banner-product-image"]} ${styles["product-item"]}`}/>
       </div>
       <div className={styles["banner-product-details-wrapper"]}>
-			<span className={`${styles["banner-product-summary"]} `}>Product Summery</span>
+			<span className={`${styles["banner-product-summary"]} `}>Product Summary</span>
         <div className={`${styles["banner-product-category"]} ${styles["product-item"]}`}>{category}</div>
         <div className={`${styles["banner-product-name"]} ${styles["product-item"]}`}>{description}</div>
 				<div className={`${styles["banner-product-current-price"]} ${styles["product-item"]}`}>Current Price:</div>

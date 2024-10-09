@@ -15,13 +15,13 @@ function Sidemenu() {
           <ul>
             <li><a href="/shop"><Store className={styles['sidemenu-icon']} /><span>Shop</span></a></li>
             <li><a href="/profile "><Person className={styles['sidemenu-icon']} /><span>Profile</span></a></li>
-            <li><a href=""><ShoppingCart className={styles['sidemenu-icon']} /><span>Cart</span></a></li>
-            <li><a href=""><ManageAccounts className={styles['sidemenu-icon']} /><span>Management</span></a></li>
+            <li><a href="/cart"><ShoppingCart className={styles['sidemenu-icon']} /><span>Cart</span></a></li>
+            <li><a href="/accounts"><ManageAccounts className={styles['sidemenu-icon']} /><span>Management</span></a></li>
           </ul>
         </nav>
 
         <div className={styles["logout-container"]}>
-          <ul><li><a href=""><Logout className={styles['sidemenu-icon']} /><span>Logout</span></a></li></ul>
+          <ul><li><a href="/logout"><Logout className={styles['sidemenu-icon']} /><span>Logout</span></a></li></ul>
         </div>
 				
       </div>

@@ -1,0 +1,37 @@
+.populated-cart {
+	position: relative;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1rem;
+  grid-template-areas:
+    "cart-items cart-summary";
+
+  /* Stack items and summary vertically when the width is below 768px */
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "cart-items"
+      "cart-summary";
+  }
+}
+
+.cart-items {
+  grid-area: cart-items;
+  display: grid;
+  gap: 1rem;
+}
+
+.cart-summary {
+	position: sticky;
+	top: calc(88px + 16px);
+	left: 0;
+  grid-area: cart-summary;
+}
+
+
+
+
+
+
+
+

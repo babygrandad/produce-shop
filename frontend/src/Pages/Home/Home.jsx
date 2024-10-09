@@ -44,7 +44,6 @@ function Home() {
         <Outlet context={{ searchInput, activeFilter, setCategoryCounts }} />
       </main>
 			{/*<ForgotPassword />*/}
-      <footer>footer</footer>
     </div>
   );
 }

@@ -6,7 +6,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit,150px);
   gap: 2rem;
-  /* justify-content: center; */
+	border-radius: .75rem;
   width: 100%;
 }
 

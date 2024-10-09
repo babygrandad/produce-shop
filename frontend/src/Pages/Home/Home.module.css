@@ -4,8 +4,7 @@
   grid-template-rows: auto 1fr auto;
   grid-template-areas: 
   "sidebar header"
-  "sidebar main"
-  "sidebar footer";
+  "sidebar main";
   min-height: 100svh;
 }
 
@@ -27,18 +26,5 @@
 .home-container main{
   grid-area: main;
   padding: 1rem;
-}
-.home-container footer{
-  grid-area: footer;
-}
-
-@media(max-width:800px){
-  .home-container{
-    grid-template-columns: 1fr;
-  }
-
-  .home-container aside{
-    position: fixed;
-    width: 350px;
-  }
+	width: 100%;
 }

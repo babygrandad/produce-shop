@@ -44,7 +44,7 @@ This document outlines the details of a web-based application developed for the 
 ## Installation Instructions
 1. **Clone the Repository**:
    ```bash
-   git clone [Produce-Shop]("https://github.com/babygrandad/produce-shop.git")
+   git clone "https://github.com/babygrandad/produce-shop.git"
    cd produce-shop
    ```
 

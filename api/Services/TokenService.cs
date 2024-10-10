@@ -15,15 +15,23 @@ namespace api.Services
 		public TokenService(IConfiguration config)
 		{
 			_config = config;
-			_key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Environment.GetEnvironmentVariable("SIGN_IN_KEY")));
+			
+			var signInKey = Environment.GetEnvironmentVariable("SIGN_IN_KEY");
+			if(signInKey == null)
+			{
+				throw new InvalidOperationException("SIGN_IN_KEY environment variable is not set.");
+			}
+
+			_key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(signInKey));
+
 		}
 
 		public string CreateToken(AppUser user)
 		{
 			var claims = new List<Claim>()
 			{
-				new Claim(JwtRegisteredClaimNames.Email, user.Email),
-				new Claim(JwtRegisteredClaimNames.GivenName, user.UserName)
+				new Claim(JwtRegisteredClaimNames.Email, user.Email!),
+				new Claim(JwtRegisteredClaimNames.GivenName, user.UserName!)
 			};
 
 			var credentials = new SigningCredentials(_key, SecurityAlgorithms.HmacSha512Signature);

@@ -80,6 +80,10 @@ builder.Services.AddAuthentication(options =>
 }).AddJwtBearer((options) =>
 {
 	var signInKey = Environment.GetEnvironmentVariable("SIGN_IN_KEY");
+	if (signInKey == null)
+	{
+		throw new InvalidOperationException("SIGN_IN_KEY environment variable is not set.");
+	}
 
 	options.TokenValidationParameters = new TokenValidationParameters
 	{
@@ -113,7 +117,13 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 // CORS registration should be done separately
-app.UseCors(options => options.WithOrigins(Environment.GetEnvironmentVariable("ALLOWED_CONNECTIONS"))
+var allowedConnections = Environment.GetEnvironmentVariable("ALLOWED_CONNECTIONS");
+if (allowedConnections == null)
+{
+	throw new InvalidOperationException("ALLOWED_CONNECTIONS environment variable is not set.");
+}
+
+app.UseCors(options => options.WithOrigins(allowedConnections)
 	.AllowAnyMethod()
 	.AllowAnyHeader());
 

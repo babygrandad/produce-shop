@@ -46,7 +46,7 @@ namespace api.Controllers
 				return BadRequest(ModelState);
 			}
 
-			var existingUser = await _userManager.FindByEmailAsync(registerDto.Email.ToLower());
+			var existingUser = await _userManager.FindByEmailAsync(registerDto.Email?.ToLower() ?? string.Empty);
 			if (existingUser != null)
 			{
 				return BadRequest(new { errors = new[] { "Email already exists." } });
@@ -54,22 +54,22 @@ namespace api.Controllers
 
 			var appUser = new AppUser
 			{
-				Name = _titleCaseService.ToTitleCase(registerDto.Name).Trim(),
-				Surname = _titleCaseService.ToTitleCase(registerDto.Surname).Trim(),
-				UserName = registerDto.Email.ToLower(),
-				Email = registerDto.Email.ToLower(),
+				Name = _titleCaseService.ToTitleCase(registerDto.Name!).Trim(),
+				Surname = _titleCaseService.ToTitleCase(registerDto.Surname!).Trim(),
+				UserName = registerDto.Email!.ToLower(),
+				Email = registerDto.Email!.ToLower(),
 			};
 
-			var createdUser = await _userManager.CreateAsync(appUser, registerDto.Password);
+			var createdUser = await _userManager.CreateAsync(appUser, registerDto.Password ?? string.Empty);
 
 			if (createdUser.Succeeded)
 			{
 				// Save the password history
-				var passwordHash = _userManager.PasswordHasher.HashPassword(appUser, registerDto.Password);
+				var passwordHash = _userManager.PasswordHasher.HashPassword(appUser, registerDto.Password ?? string.Empty);
 				await _passwordHistoryService.AddPasswordAsync(appUser.Id, passwordHash);
 
 				var emailToken = await _userManager.GenerateEmailConfirmationTokenAsync(appUser);
-				var confirmationLink = Url.Action("confirm-email",
+				var confirmationLink = Url.Action("ConfirmEmail",
 																					"Account",
 																					new
 																					{
@@ -78,12 +78,17 @@ namespace api.Controllers
 																					},
 																					Request.Scheme);
 
+				if (confirmationLink == null)
+				{
+					throw new InvalidOperationException("ALLOWED_CONNECTIONS environment variable is not set.");
+				}
+
 				var emailContext = new EmailDto
 				{
-					EmailRecipient = registerDto.Email.ToLower(),
+					EmailRecipient = registerDto.Email!.ToLower(),
 					Subject = "Confirm Your Email",
 					Link = confirmationLink,
-					FullName = $"{_titleCaseService.ToTitleCase(registerDto.Name).Trim()} {_titleCaseService.ToTitleCase(registerDto.Surname).Trim()}"
+					FullName = $"{_titleCaseService.ToTitleCase(registerDto.Name!).Trim()} {_titleCaseService.ToTitleCase(registerDto.Surname!).Trim()}"
 				};
 
 				try
@@ -98,7 +103,7 @@ namespace api.Controllers
 
 				try
 				{
-					var roleResult = await _userManager.AddToRoleAsync(appUser, "Admin");
+					var roleResult = await _userManager.AddToRoleAsync(appUser, "User");
 
 					if (roleResult.Succeeded)
 					{
@@ -129,13 +134,19 @@ namespace api.Controllers
 				return BadRequest(ModelState);
 			}
 
-			var user = await _userManager.Users.FirstOrDefaultAsync(x => x.Email == loginDto.Email.ToLower());
+			var user = await _userManager.Users.FirstOrDefaultAsync(x => x.Email == loginDto.Email!.ToLower());
 
-			if (user == null) return Unauthorized(new { message = "Invalid email or password." });
+			if (user == null)
+			{
+				return Unauthorized(new { message = "Invalid email or password." });
+			}
 
-			if (!user.EmailConfirmed) return Unauthorized(new { message = "Email is not confirmed." });
+			if (!user.EmailConfirmed)
+			{
+				 return Unauthorized(new { message = "Email is not confirmed." });
+			}
 
-			var result = await _signInManager.CheckPasswordSignInAsync(user, loginDto.Password, lockoutOnFailure: true);
+			var result = await _signInManager.CheckPasswordSignInAsync(user, loginDto.Password!, lockoutOnFailure: true);
 
 			if (result.Succeeded)
 			{
@@ -148,7 +159,7 @@ namespace api.Controllers
 						{
 							userName = user.UserName,
 							email = user.Email,
-							fullName = $"{_titleCaseService.ToTitleCase(user.Name).Trim()} {_titleCaseService.ToTitleCase(user.Surname).Trim()}",
+							fullName = $"{_titleCaseService.ToTitleCase(user.Name!).Trim()} {_titleCaseService.ToTitleCase(user.Surname!).Trim()}",
 							token = _tokenService.CreateToken(user),
 							roles
 						}
@@ -184,10 +195,16 @@ namespace api.Controllers
 				return NotFound();
 			}
 
+			var frontendUrl = Environment.GetEnvironmentVariable("FRONT_END_LINK");
+			if (frontendUrl == null)
+			{
+				throw new InvalidOperationException("FRONT_END_LINK environment variable is not set.");
+			}
+
 			var result = await _userManager.ConfirmEmailAsync(user, token);
 			if (result.Succeeded)
 			{
-				return Redirect(Environment.GetEnvironmentVariable("FRONT_END_LINK"));
+				return Redirect(frontendUrl);
 			}
 			else
 			{

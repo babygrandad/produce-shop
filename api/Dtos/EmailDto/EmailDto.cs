@@ -1,10 +1,16 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace api.Dtos.EmailDto
 {
 	public class EmailDto
 	{
-		public string EmailRecipient { get; set; }
-		public string Subject { get; set; }
-		public string Link { get; set; }
-		public string FullName { get; set; }
+		[Required]
+		public string EmailRecipient { get; set; } = string.Empty;
+		[Required]
+		public string Subject { get; set; } = string.Empty;
+		[Required]
+		public string Link { get; set; } = string.Empty;
+		[Required]
+		public string FullName { get; set; } = string.Empty;
 	}
 }

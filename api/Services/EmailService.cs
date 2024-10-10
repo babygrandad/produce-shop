@@ -44,8 +44,8 @@ namespace api.Services
 				var template = LoadTemplate(templateName);
 				var body = PopulateTemplate(template, new (string, string)[]
 				{
-					("{nameOfUser}", emailContext.FullName),
-					("{link}", emailDto.Link),
+					("{nameOfUser}", emailContext.FullName ?? string.Empty),
+					("{link}", emailDto.Link ?? string.Empty),
           ("{year}", currentYear),
 				});
 
@@ -56,7 +56,7 @@ namespace api.Services
 					IsBodyHtml = true
 				};
 
-				mailMessage.To.Add(emailDto.EmailRecipient);
+				mailMessage.To.Add(emailDto.EmailRecipient ?? string.Empty);
 
 				await client.SendMailAsync(mailMessage);
 			}

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using api.Data;
 
@@ -11,9 +12,11 @@ using api.Data;
 namespace api.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    partial class ApplicationDBContextModelSnapshot : ModelSnapshot
+    [Migration("20241010081944_SuperUserSeedData")]
+    partial class SuperUserSeedData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -51,19 +54,19 @@ namespace api.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "ce2acedf-d3a1-4838-bdf4-09da72671604",
+                            Id = "b0082fc2-401d-46df-81cd-7d5d7fe0c6b8",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "af82a528-d17e-4e19-a1a4-8fe9ea5d8d8a",
+                            Id = "6a7d29cb-c463-4951-9914-c1f7e546806b",
                             Name = "User",
                             NormalizedName = "USER"
                         },
                         new
                         {
-                            Id = "4fc25edb-3fa5-423a-9e58-56c06d565887",
+                            Id = "e7127038-cf48-45b0-a173-e9ec16e7a220",
                             Name = "Manager",
                             NormalizedName = "MANAGER"
                         });
@@ -251,19 +254,19 @@ namespace api.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "f9a1936a-873e-49db-934b-5eb2ee13a697",
+                            Id = "c49eaf90-1a2c-405e-a2b9-232038247a58",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "fb1f289f-4b23-46d0-90e4-309562221f42",
+                            ConcurrencyStamp = "861a6379-23b0-471b-97a2-f4bef29e92b7",
                             Email = "superuser@example.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
-                            Name = "Super",
+                            Name = "",
                             NormalizedEmail = "SUPERUSER@EXAMPLE.COM",
                             NormalizedUserName = "SUPERUSER@EXAMPLE.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAENviHe/zJjkrrtmR5x3d0uWWH+05s57kGqlBKHrNw48S6v0UU1Be+pUKAF7HBjBPrw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEI7oBknYfEsEz18rdBBOuU9Blv8v2EVPEaag2L/9R4LQNNO+hDAHCkAM6ZGZ8drdgQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "36b8093c-a1c5-492c-bb27-7f9582e27064",
-                            Surname = "User",
+                            SecurityStamp = "591227b0-dd38-476f-8fa3-16fd3c976752",
+                            Surname = "",
                             TwoFactorEnabled = false,
                             UserName = "superuser@example.com"
                         });

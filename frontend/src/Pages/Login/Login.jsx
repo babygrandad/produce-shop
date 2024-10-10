@@ -17,7 +17,7 @@ function Login() {
 				password,
 		};
 
-		const response = await Login(userData);
+		const response = await LoginUser(userData);
 		if (response.success) {
 				// Notify user of successful login
 				toast.success("Login successful!");

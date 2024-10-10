@@ -1,7 +1,7 @@
 
 import React ,{ useState } from 'react'
 import styles from './Login.module.css'
-import { toast, ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
 import { Close } from '@mui/icons-material'
 import { LoginUser } from '../../utils/Api/LoginApi';
 

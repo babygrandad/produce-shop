@@ -7,7 +7,7 @@ namespace api.Models
     public string Name { get; set; } = string.Empty;
     public string Surname { get; set; } = string.Empty;
 
-		// navigation  properties for refferencing 
+		// navigation  properties for referencing 
 		public List<PasswordHistory> PasswordHistories  { get; set; } = new List<PasswordHistory>();
   }
 }

@@ -37,7 +37,7 @@
   gap:0.5rem;
 }
 
-.sidemenu-wrapper ul li a{
+.sidemenu-wrapper ul li .sidemenu-nav{
   display: flex;
   align-items: center;
   gap:1rem;
@@ -47,9 +47,14 @@
   color: var(--clr-default);
   text-decoration: none;
 	position: relative;
+	/* the next css properties are for styling the logout button but otherwise apply to the nav tabs on the menu */
+	border: none; 
+	outline: none;
+	width: 100%;
+	background-color: var(--clr-white)
 }
 
-.sidemenu-wrapper ul li a:hover{
+.sidemenu-wrapper ul li .sidemenu-nav:hover{
   background-color: var(--accent-clr);
   color: var(--clr-white);
   box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;

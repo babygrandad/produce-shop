@@ -2,6 +2,7 @@ import React from 'react'
 import styles from './EditProfile.module.css'
 import { Close } from '@mui/icons-material'
 
+
 function EditProfile() {
 	return (
 		<div className={styles['edit-profile-container']}>

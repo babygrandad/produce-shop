@@ -1,14 +1,23 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./ProductGridCard.module.css";
 import { NavLink } from "react-router-dom";
 import { AddShoppingCart, AnalyticsOutlined } from "@mui/icons-material";
 import CartApi from "../../utils/Api/CartApi";
+import { getUser } from "../../utils/auth/auth";
 
 import { toast } from 'react-toastify';
 
 
 function ProductGridCard({ product }) {
   const { id, description, salePrice, category, image } = product;
+	const [user, setUserState] = useState ({})
+
+	useEffect(() => {
+		const userData = getUser(); // Call getUser to retrieve user data from local storage
+		if (userData) {
+				setUserState(userData); // Update the state with the retrieved user data
+		}
+}, []);
 
   // converts the int values to float values
   const formattedPrice = parseFloat(salePrice).toFixed(2);
@@ -25,7 +34,8 @@ function ProductGridCard({ product }) {
 
   return (
     <div key={id} className={styles["product-grid-card"]}>
-      <NavLink
+      {user && Array.isArray(user.roles) && (user.roles[0] === "Admin" || user.roles[0] === "Manager") ?
+			(<NavLink
         to={`/product-sales/${id}`}
         state={{ product }}
         className={`${styles["product-stats-icon"]} ${styles["product-item"]}`}
@@ -34,7 +44,9 @@ function ProductGridCard({ product }) {
         <span className={styles["product-stats-tooltip"]}>
           View product sales.
         </span>
-      </NavLink>
+      </NavLink>)
+			:
+			""}
       <div
         className={`${styles["product-category"]} ${styles["product-item"]}`}
       >

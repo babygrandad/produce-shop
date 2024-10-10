@@ -49,20 +49,6 @@ namespace api.Data
 
 			modelBuilder.Entity<IdentityRole>().HasData(roles);
 
-			var superUser = new AppUser
-    	{
-				Name = "Super",
-				Surname = "User",
-        UserName = "superuser@example.com",
-        NormalizedUserName = "SUPERUSER@EXAMPLE.COM",
-        Email = "superuser@example.com",
-        NormalizedEmail = "SUPERUSER@EXAMPLE.COM",
-        EmailConfirmed = true,
-        PasswordHash = new PasswordHasher<AppUser>().HashPassword(new AppUser(), "SuperPassword@1"),
-    	};
-
-			modelBuilder.Entity<AppUser>().HasData(superUser);
-
 		}
 	}
 }

@@ -141,11 +141,6 @@ namespace api.Controllers
 				return Unauthorized(new { message = "Invalid email or password." });
 			}
 
-			if (!user.EmailConfirmed)
-			{
-				 return Unauthorized(new { message = "Email is not confirmed." });
-			}
-
 			var result = await _signInManager.CheckPasswordSignInAsync(user, loginDto.Password!, lockoutOnFailure: true);
 
 			if (result.Succeeded)

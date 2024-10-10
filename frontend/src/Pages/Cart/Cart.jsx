@@ -76,8 +76,8 @@ function Cart() {
           </div>
         </div>
       ) : (
-        <div className="unpopulated-cart">
-          Something to say if cart is empty
+        <div className={styles["unpopulated-cart"]}>
+          You have no items in your cart.
         </div>
       )}
     </div>

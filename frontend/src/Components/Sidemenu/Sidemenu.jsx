@@ -1,10 +1,30 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate correctly
 import styles from "./Sidemenu.module.css";
 import logo from "../../assets/Garden Palette Logo.png";
 import { Store, Person, ShoppingCart, Logout } from "@mui/icons-material";
+import { removeUser } from "../../utils/auth/auth";
+import { toast } from "react-toastify";
+import { getUser } from "../../utils/auth/auth";
 
 function Sidemenu() {
-  const [cartCount, setCartCount] = useState(0)
+		const [user, setUserState] = useState ()
+    const navigate = useNavigate(); // Initialize navigate
+
+    const handleLogout = () => {
+        removeUser(); 
+        navigate("/");
+				toast.success("Logged out successfully") 
+    };
+
+		useEffect(() => {
+			const userData = getUser(); // Call getUser to retrieve user data from local storage
+			if (userData) {
+					setUserState(userData); // Update the state with the retrieved user data
+			}
+	}, []);
+
+
   return (
     <aside className={`${styles["sidemenu-container"]}`}>
       <div className={styles["sidemenu-wrapper"]}>
@@ -15,26 +35,27 @@ function Sidemenu() {
         <nav className={styles["main-nav"]}>
           <ul>
             <li>
-              <a href="/shop">
+              <a href="/shop"
+								className={styles["sidemenu-nav"]}>
                 <Store className={styles["sidemenu-icon"]} />
                 <span>Shop</span>
               </a>
             </li>
-            <li>
-              <a href="/profile ">
+						{user ?
+						(<li>
+              <a href="/profile"
+								className={styles["sidemenu-nav"]}>
                 <Person className={styles["sidemenu-icon"]} />
                 <span>Profile</span>
               </a>
-            </li>
+            </li>)
+						:
+						""}
             <li>
-              <a href="/cart">
+              <a href="/cart"
+								className={styles["sidemenu-nav"]}>
                 <ShoppingCart className={styles["sidemenu-icon"]} />
-                <span>Cart</span>{" "}
-                {cartCount > 0 ? (
-                  <span className={styles["cart-count"]}>{cartCount}</span>
-                ) : (
-                  ""
-                )}
+                <span>Cart</span>
               </a>
             </li>
             {/*link omitted due to time constraints. I will implement it on my spare time*/}
@@ -45,10 +66,12 @@ function Sidemenu() {
         <div className={styles["logout-container"]}>
           <ul>
             <li>
-              <a href="/logout">
+              <button
+								className={styles["sidemenu-nav"]}
+								onClick={handleLogout}	>
                 <Logout className={styles["sidemenu-icon"]} />
                 <span>Logout</span>
-              </a>
+              </button>
             </li>
           </ul>
         </div>
